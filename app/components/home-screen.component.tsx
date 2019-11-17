@@ -1,21 +1,29 @@
 import React from 'react';
-import {Button} from 'react-native';
+import {Button, View} from 'react-native';
 
 interface Props {
     navigation: any;
 }
 
 export class HomeScreenComponent extends React.Component<Props> {
-    static navigationOptions = {
-        title: 'Welcome',
-    };
+
+    private _generatePlaylist(): void {
+
+    }
+
     render() {
         const {navigate} = this.props.navigation;
         return (
-            <Button
-                title="Go to Jane's profile"
-                onPress={() => navigate('Profile', {name: 'Jane'})}
-            />
+            <View>
+                <Button
+                    title="Go to profile"
+                    onPress={() => navigate('Profile', {name: 'Jane'})}
+                />
+                <Button
+                    title="Generate new playlist"
+                    onPress={this._generatePlaylist}
+                />
+            </View>
         );
     }
 }
